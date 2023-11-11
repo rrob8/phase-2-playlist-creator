@@ -19,6 +19,13 @@ function NavBar() {
             >
             About
             </NavLink>
+
+            <NavLink
+            to='/playlist'
+            className='nav-link'
+            >
+            Playlist
+            </NavLink>
         </nav>
 
 

@@ -1,36 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
+import Search from './Search'
+import Track from './Track'
 
 
 function Home () {
 
+    const [songs, setSongs] = useState([])
+    const [searchTerm, setSearchTerm] = useState('blurry')
 
-    // useEffect (()=> {
-    // fetch(`http://localhost:3000/results`)
-    // .then(r=> r.json())
-    // .then(data=> console.log(data))
-    
-    // }, [])
-
-    // useEffect (()=> {
-    //     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/hel`)
-    //     .then(r=>r.json())
-    //     .then(data=> console.log(data[0].meanings))
-    //     .catch(error=> console.log(`This is an error ${error}`))
-
-    // },[])
     useEffect (()=> {
-        fetch(`https://itunes.apple.com/search?term=happy+birthday`)
+        fetch(`https://itunes.apple.com/search?term=${searchTerm}`)
         .then(r=> r.json())
-        .then(data=>console.log(data))
-    },[])
+        .then(data=>setSongs(data.results))
+    },[searchTerm])
 
+    function submit (term) {
+        setSearchTerm(term)
+        
+    }
+    console.log(songs)
 
     return (
         <div>
         <header><NavBar/></header>
-      
-        Create a Playlist
+        <Search onSubmit={submit}/>
+        Search for a song to add to your playlist
+        {songs.map(song=>
+            <Track key={song.trackId} song={song}/>)}  
         </div>
     )
 }

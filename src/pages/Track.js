@@ -1,20 +1,36 @@
 import React, {useState} from "react";
-import {useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import TrackCard from '../components/TrackCard'
+
+function Track ({song}) {
 
 
-function Track ( ) {
+    // const [track, setTrack] = useState({})
 
-    const [track, setTrack] = useState({})
-
-    const params = useParams();
+    // const params = useParams();
     
   
-    const trackId = params.id;
+    // const trackId = params.id;
 
+
+    function handleAdd() {
+
+    }
+
+    
    
         return (
-            <div>
-                Track page
+            <div
+            
+            >
+                <h1>{song.trackName}</h1>
+                <p>{song.artistName}, Type: {song.wrapperType}</p>
+                <Link
+                to={`/track/${song.trackId}`}
+                >More Info</Link>
+                <button
+                onClick={handleAdd}
+                >Add Song</button>
             </div>
         )
         

@@ -1,11 +1,35 @@
+import {useState}  from "react"
 
 
+function Search ({onSubmit}) {
 
-function Search () {
+    const [term, setTerm ] = useState('')
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        onSubmit(term)
+    }
+
+    function handleChange (e) {
+        setTerm(e.target.value)
+    }
+    console.log(term)
 
     return (
         <div>
-            Search page
+           <form 
+           onSubmit={handleSubmit}
+           >
+        <input
+        value={term}
+        onChange={handleChange}
+        placeholder="Enter a song..."
+        >
+        </input>
+        <button>
+            Search
+        </button>
+      </form>
         </div>
     )
     

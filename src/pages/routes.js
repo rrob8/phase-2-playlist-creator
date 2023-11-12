@@ -1,16 +1,12 @@
 import Home from "./Home";
-import About from "./About";
+
 import Playlist from "./Playlist";
-import TrackCard from "./Track";
+import TrackCard from "./TrackCard";
 
 const routes = [
   {
     path: "/",
     element: <Home />,
-  },
-  {
-    path: "/about",
-    element: <About />,
   },
   {
     path: "/playlist",
@@ -20,6 +16,7 @@ const routes = [
     path: "/track/:id",
     element: <TrackCard />,
   },
+  
 ];
 
 export default routes;

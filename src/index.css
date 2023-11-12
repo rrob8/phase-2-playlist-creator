@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.info {
+  display: flex;
+}
+
+.link {
+  padding-left: 50px;
+}
+
+.delete-button {
+  background-color: #f44336;
+}

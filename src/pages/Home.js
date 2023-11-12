@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
-import Search from './Search'
-import Track from './Track'
+import Search from '../components/Search'
+import Track from '../components/Track'
+
+
 
 
 function Home () {
 
     const [songs, setSongs] = useState([])
-    const [searchTerm, setSearchTerm] = useState('blurry')
+    const [searchTerm, setSearchTerm] = useState('Welcome')
 
     useEffect (()=> {
-        fetch(`https://itunes.apple.com/search?term=${searchTerm}`)
+        fetch(` https://itunes.apple.com/search?term=${searchTerm}`)
+       
+       
         .then(r=> r.json())
         .then(data=>setSongs(data.results))
     },[searchTerm])

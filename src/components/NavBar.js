@@ -1,8 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import './NavBar.css'
+import {useNavigate} from 'react-router-dom'
 
 
 function NavBar() {
+
+const navigate = useNavigate()
+
     return (
 
         <nav>
@@ -12,13 +16,7 @@ function NavBar() {
             >
             Home
             </NavLink>
-            
-            <NavLink
-            to='/about'
-            className='nav-link'
-            >
-            About
-            </NavLink>
+        
 
             <NavLink
             to='/playlist'
@@ -26,6 +24,13 @@ function NavBar() {
             >
             Playlist
             </NavLink>
+
+            <button
+            onClick={()=> navigate(-1)}
+            className='nav-link'
+            >
+            Back
+            </button>
         </nav>
 
 

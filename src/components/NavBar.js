@@ -1,7 +1,7 @@
 import { NavLink, Navigate } from "react-router-dom";
 import './NavBar.css'
 import {useNavigate} from 'react-router-dom'
-
+import {PlaylistPlay, Radio} from "@mui/icons-material"
 
 function NavBar() {
 
@@ -14,7 +14,7 @@ const navigate = useNavigate()
             to='/'
             className='nav-link'
             >
-            Home
+            <Radio/>Home
             </NavLink>
         
 
@@ -22,12 +22,12 @@ const navigate = useNavigate()
             to='/playlist'
             className='nav-link'
             >
-            Playlist
+            <PlaylistPlay/>Playlist
             </NavLink>
 
             <button
             onClick={()=> navigate(-1)}
-            className='nav-link'
+            className='back-link'
             >
             Back
             </button>

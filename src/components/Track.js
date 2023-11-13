@@ -1,11 +1,15 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom'
 import Info from "./Info";
+import {button} from '@mui/material'
+
 
 function Track ({song}) {
 
     const [track, setTrack] = useState({})
     const [info, setInfo] = useState(false)
+    const [addClicked, setAddClicked] = useState(false)
+    const [infoClicked, setInfoClicked] = useState(false)
 
    useEffect (()=>{
     setTrack(song)
@@ -13,6 +17,7 @@ function Track ({song}) {
 
 
     function handleAdd() {
+        setAddClicked(true)
         fetch(` http://localhost:3000/songs`, {
             method: "POST",
         headers: {
@@ -24,21 +29,24 @@ function Track ({song}) {
 
     function handleInfo () {
         setInfo(!info)
+        setInfoClicked(!infoClicked)
     }
     
    
         return (
             <article
             >
-                <h1>{song.trackName}</h1>
+                <h4>{song.trackName}</h4>
                 <p>{song.artistName}, Type: {song.wrapperType}</p>
                 <button
+                className={infoClicked? 'clicked': 'notClicked'}
                 onClick={handleInfo}
                 >
                     More Info
                 </button>
                 <button
                 onClick={handleAdd}
+                className={addClicked ? 'clicked':'notClicked'}
                 >Add Song</button>
                 {info == true? <Info track={track}/> : ''}
             </article>

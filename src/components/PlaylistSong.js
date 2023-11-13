@@ -1,5 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import {Card } from "@mui/material"
 
 
 function PlaylistSong ({song, onDelete}) {
@@ -11,18 +13,20 @@ function handleDelete () {
 }
 
 return (
-    <article>
+    <Card
+    className="article"
+    >
     <Link
        className="link"
        to={`/track/${song.id}`}
        >{song.trackName}</Link>
 
-       <button
+       <Button fullWidth='false' variant='contained' color='secondary'
        onClick={handleDelete}
-       className="delete-button">
-        Delete
-       </button>
-       </article>
+       >
+        Delete 
+       </Button>
+       </Card>
 )
 }
 

@@ -17,9 +17,35 @@ code {
 }
 
 .link {
-  padding-left: 50px;
+  padding: 25px;
 }
 
 .delete-button {
   background-color: #f44336;
+}
+
+.nav-link {
+  color: white
+
+}
+
+.back-link {
+  color: black
+
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 25px;
+
+}
+
+.clicked {
+  background-color: blue;
+  color: white
+}
+
+.wrapper{
+  display: flex;
 }

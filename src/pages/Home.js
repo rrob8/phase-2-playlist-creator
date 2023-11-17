@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import Search from '../components/Search'
 import Track from '../components/Track'
 import { Typography, AppBar, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container,  } from "@mui/material";
-import FormPage from '../components/FormPage'
+
 
 
 
@@ -60,15 +60,15 @@ function Home () {
         </Typography>
         <div className="wrapper">
         <Search  onSubmit={submit}/>
-        <FormPage/>
+        
         </div>
                 <div>
                  
                         
                     {songs.map(song=>
-                    <Grid item>
+                    // <Grid key={song.trackId} item>
             <Track key={song.trackId} song={song}/>
-                    </Grid>
+                    // </Grid> 
                     )}                      
 
                     

@@ -4,7 +4,7 @@ import { AppBar } from "@mui/material";
 import PlaylistSong from "../components/PlaylistSong";
 import { Typography } from "@mui/material";
 import { Grid } from "@mui/material";
-
+import FormPage from '../components/FormPage'
 
 
 function Playlist() {
@@ -45,7 +45,7 @@ function Playlist() {
       >
         Your Playlist
       </Typography>
-        
+      <FormPage/>
       <div>
       
         <Grid container direction="column" spacing={2} justify="center">

@@ -34,7 +34,7 @@ function Track ({song}) {
     
    
         return (
-            <article
+            <article key={song.trackName}
             >
                 <h4>{song.trackName}</h4>
                 <p>{song.artistName}, Type: {song.wrapperType}</p>

@@ -26,7 +26,6 @@ If you did not find a song listed while on the Home page, there is a form here t
 the playlist. After clicking Add Song, a message will appear to let you know that your song was added to the playlist.
 You must at the minimum add a track title or the page will alert you to do so. The form will clear out once a song is submitted.
 
-see my phase-2 finalproject.gif file for a preview
 
 ![Alt text](<phase-2 finalproject.gif>)
 

@@ -17,7 +17,7 @@ function TrackCard () {
   const trackId = params.id;
     
   useEffect(() =>{
-    fetch(`http://localhost:3000/songs/${trackId}`)
+    fetch(`http://localhost:3001/songs/${trackId}`)
     .then(r => r.json())
     .then(data => setTrack(data))
     .catch(error => console.error(error));

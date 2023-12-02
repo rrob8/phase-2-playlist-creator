@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import Search from '../components/Search'
 import Track from '../components/Track'
-import { Typography, AppBar, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container,  } from "@mui/material";
+import { Typography, AppBar, CssBaseline, Container,  } from "@mui/material";
 
 
 

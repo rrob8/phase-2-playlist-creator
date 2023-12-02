@@ -9,12 +9,15 @@ import FormPage from '../components/FormPage'
 
 function Playlist() {
   const [songs, setSongs] = useState([]);
+  const [ newSong, setNewSong] = useState({})
 
+ 
   useEffect(() => {
     fetch(`http://localhost:3001/songs`)
       .then((r) => r.json())
-      .then((data) => setSongs(data));
+      .then((data) => setSongs(data ));
   }, []);
+  
 
   function onDelete(deletedSong) {
     fetch(` http://localhost:3001/songs/${deletedSong.id}`, {
@@ -28,6 +31,26 @@ function Playlist() {
         setSongs(newCollection);
       });
   }
+
+  function onAdd (newSongData) {
+
+    fetch(` http://localhost:3001/songs`, {
+      method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(newSongData),
+})
+.then (r => r.json())
+
+setNewSong(newSongData)
+setSongs([...songs, newSongData])
+
+
+
+
+  }
+
 
   return (
     <div>
@@ -45,7 +68,8 @@ function Playlist() {
       >
         Your Playlist
       </Typography>
-      <FormPage/>
+      
+      <FormPage  onAdd={onAdd} newSong={newSong}   />
       <div>
       
         <Grid container direction="column" spacing={2} justify="center">

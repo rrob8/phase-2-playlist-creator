@@ -1,30 +1,30 @@
-import { Alert } from "@mui/material"
-import e from "cors"
+
 import React from "react"
 import { useState} from "react"
+import { Typography } from "@mui/material";
 
+function FormPage ({onAdd, newSong}) {
 
-function FormPage () {
-
-  const [ newSong, setNewSong] = useState({})
-  const [ song, setSong] =useState('')
+  
+  const [ songData, setSongData] =useState({
+    trackName:'',
+    artistName:'',
+    collectionName:''
+  })
   
 
 
   function handleSubmit(e) {
     e.preventDefault()
-    if ( song !== '' ) {
-    fetch(` http://localhost:3001/songs`, {
-      method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    trackName:song
-  }),
-})
-.then (r => r.json())
-.then (data=> setNewSong(data))
+    if ( songData.trackName !== '' ) {
+    
+      onAdd(songData)
+      setSongData({
+        trackName:'',
+        artistName:'',
+        collectionName:''
+      })
+
 
     }
 
@@ -37,7 +37,11 @@ function FormPage () {
 
 
 function handleChange (e) {
-  setSong(e.target.value)
+  const { name, value } = e.target;
+    setSongData((songData) => ({
+      ...songData,
+      [name]: value,
+    }));
 }
 
 return (
@@ -47,16 +51,37 @@ return (
     onSubmit={handleSubmit}
     >
       <input
-      placeholder="Didn't find your song?"
-      value={song}
+      placeholder="song name"
+      value={songData.trackName}
+      name='trackName'
       onChange={handleChange}
-      >
-      </input>
+      />
+      <input
+      name='artistName'
+      placeholder="artist"
+      value={songData.artistName}
+      onChange={handleChange}
+      />
+      <input
+       placeholder="album"
+      name='collectionName'
+      value={songData.collectionName}
+      onChange={handleChange}
+      />
+      
     <button>
       Add Song
     </button>
     </form>
-    {newSong.trackName !== undefined ? `${newSong.trackName} was added!` : ''}
+    <Typography
+        variant="h6"
+        align="center"
+        color="textSecondary"
+        gutterBottom
+      >
+        Didn't find your song? Enter one above
+      </Typography>
+    {newSong.trackName !== undefined ? `\'${newSong.trackName}\' was added!` : ''}
 </div>
 )
 

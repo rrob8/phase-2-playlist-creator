@@ -14,7 +14,7 @@ function FormPage () {
   function handleSubmit(e) {
     e.preventDefault()
     if ( song !== '' ) {
-    fetch(` http://localhost:3000/songs`, {
+    fetch(` http://localhost:3001/songs`, {
       method: "POST",
   headers: {
     "Content-Type": "application/json",

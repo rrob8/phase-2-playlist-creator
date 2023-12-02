@@ -18,7 +18,7 @@ function Track ({song}) {
 
     function handleAdd() {
         setAddClicked(true)
-        fetch(` http://localhost:3000/songs`, {
+        fetch(` http://localhost:3001/songs`, {
             method: "POST",
         headers: {
           "Content-Type": "application/json",

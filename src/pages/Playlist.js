@@ -11,13 +11,13 @@ function Playlist() {
   const [songs, setSongs] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/songs`)
+    fetch(`http://localhost:3001/songs`)
       .then((r) => r.json())
       .then((data) => setSongs(data));
   }, []);
 
   function onDelete(deletedSong) {
-    fetch(` http://localhost:3000/songs/${deletedSong.id}`, {
+    fetch(` http://localhost:3001/songs/${deletedSong.id}`, {
       method: "DELETE",
     })
       .then((r) => r.json())

@@ -28,7 +28,7 @@ You must at the minimum add a track title or the page will alert you to do so. T
 
 see my phase-2 finalproject.gif file for a preview
 
-
+![Alt text](<phase-2 finalproject.gif>)
 
 
 
